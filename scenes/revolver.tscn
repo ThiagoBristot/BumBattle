@@ -1,0 +1,28 @@
+[gd_scene load_steps=5 format=3 uid="uid://bcbj4yhyfwn2u"]
+
+[ext_resource type="Script" path="res://scripts/revolver.gd" id="1_jq4qs"]
+[ext_resource type="Texture2D" uid="uid://rou48mhntodd" path="res://assets/sprites/GUNSSpritesheet.png" id="1_qldil"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_xivh6"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_uc54r"]
+size = Vector2(5, 3)
+
+[node name="RigidBody2D" type="RigidBody2D"]
+scale = Vector2(0.2, 0.2)
+collision_mask = 2
+physics_material_override = SubResource("PhysicsMaterial_xivh6")
+script = ExtResource("1_jq4qs")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.19, 0.19)
+texture = ExtResource("1_qldil")
+region_enabled = true
+region_rect = Rect2(290, 167, 28, 17)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -3.38813e-21)
+scale = Vector2(0.999999, 0.999999)
+shape = SubResource("RectangleShape2D_uc54r")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

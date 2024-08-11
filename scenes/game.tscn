@@ -1,7 +1,8 @@
-[gd_scene load_steps=9 format=3 uid="uid://cbbistc7xoyha"]
+[gd_scene load_steps=10 format=3 uid="uid://cbbistc7xoyha"]
 
 [ext_resource type="Texture2D" uid="uid://docsv1pyws7qo" path="res://assets/sprites/Assets.png" id="1_fd1lb"]
 [ext_resource type="PackedScene" uid="uid://do7dgpepsj42n" path="res://scenes/player.tscn" id="1_i6dc1"]
+[ext_resource type="Script" path="res://scripts/game.gd" id="1_l5cgp"]
 [ext_resource type="PackedScene" uid="uid://nom72708hi84" path="res://scenes/plataform.tscn" id="3_1nkoj"]
 [ext_resource type="Texture2D" uid="uid://swtq3jwusgl" path="res://assets/sprites/Background_2.png" id="4_kqbu2"]
 [ext_resource type="PackedScene" uid="uid://mop3qvrgwk17" path="res://scenes/Killzone.tscn" id="5_2tkum"]
@@ -1081,9 +1082,11 @@ physics_layer_0/collision_layer = 3
 physics_layer_0/collision_mask = 3
 sources/0 = SubResource("TileSetAtlasSource_sdgt4")
 
-[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_f7ioi"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6snvn"]
+size = Vector2(1119, 396)
 
 [node name="Game" type="Node2D"]
+script = ExtResource("1_l5cgp")
 
 [node name="TileMap" type="TileMap" parent="."]
 z_index = 1
@@ -1112,24 +1115,27 @@ scale = Vector2(1.82863, 1.76471)
 texture = ExtResource("4_kqbu2")
 
 [node name="CharacterBody2D" parent="." instance=ExtResource("1_i6dc1")]
-position = Vector2(-112, 69)
-scale = Vector2(1, 1)
+position = Vector2(-195, 133)
+collision_layer = 3
 
 [node name="Camera2D" type="Camera2D" parent="CharacterBody2D"]
 position = Vector2(3.8147e-06, 9.53674e-06)
 rotation = 0.00443044
-scale = Vector2(1, 1)
 zoom = Vector2(4, 4)
 limit_bottom = 240
 limit_smoothed = true
 
-[node name="Killzone" parent="CharacterBody2D" instance=ExtResource("5_2tkum")]
-position = Vector2(-94.832, 187.582)
-rotation = 0.00443044
-scale = Vector2(1, 1)
+[node name="Killzone" parent="." instance=ExtResource("5_2tkum")]
+position = Vector2(1, 223)
 collision_layer = 3
-collision_mask = 3
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D/Killzone"]
-position = Vector2(1, -3.05176e-05)
-shape = SubResource("WorldBoundaryShape2D_f7ioi")
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Killzone"]
+position = Vector2(1.5, 188)
+shape = SubResource("RectangleShape2D_6snvn")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 3.0
+one_shot = true
+
+[connection signal="body_entered" from="Killzone" to="CharacterBody2D" method="_on_killzone_body_entered"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
