@@ -186,7 +186,6 @@ radius = 20.3961
 z_index = 5
 rotation = -0.00443044
 collision_layer = 2
-collision_mask = 5
 script = ExtResource("1_f13gs")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -206,8 +205,6 @@ show_behind_parent = true
 shape = SubResource("CircleShape2D_lnu4u")
 
 [node name="Marker2D" type="Marker2D" parent="."]
-modulate = Color(1, 0, 1, 1)
-top_level = true
 position = Vector2(4.99109, 2.02213)
 
 [connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]

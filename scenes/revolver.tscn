@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://bcbj4yhyfwn2u"]
 
-[ext_resource type="Script" path="res://scripts/revolver.gd" id="1_jq4qs"]
+[ext_resource type="Script" path="res://scripts/revolver.gd" id="1_6hqvx"]
 [ext_resource type="Texture2D" uid="uid://rou48mhntodd" path="res://assets/sprites/GUNSSpritesheet.png" id="1_qldil"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_xivh6"]
@@ -10,9 +10,10 @@ size = Vector2(5, 3)
 
 [node name="RigidBody2D" type="RigidBody2D"]
 scale = Vector2(0.2, 0.2)
-collision_mask = 2
+collision_layer = 4
+collision_mask = 3
 physics_material_override = SubResource("PhysicsMaterial_xivh6")
-script = ExtResource("1_jq4qs")
+script = ExtResource("1_6hqvx")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 scale = Vector2(0.19, 0.19)
@@ -22,7 +23,8 @@ region_rect = Rect2(290, 167, 28, 17)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -3.38813e-21)
-scale = Vector2(0.999999, 0.999999)
+scale = Vector2(1.35714, 1.57143)
 shape = SubResource("RectangleShape2D_uc54r")
+debug_color = Color(0.880094, 0.000365601, 0.822816, 0.42)
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

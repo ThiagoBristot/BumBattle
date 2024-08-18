@@ -1,0 +1,27 @@
+[gd_scene load_steps=4 format=3 uid="uid://p16urtpnrqd6"]
+
+[ext_resource type="Script" path="res://Weapon.gd" id="1_w0573"]
+[ext_resource type="Texture2D" uid="uid://rou48mhntodd" path="res://assets/sprites/GUNSSpritesheet.png" id="2_iyavd"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gevt7"]
+size = Vector2(4.42106, 2.54545)
+
+[node name="Weapon" type="Area2D"]
+collision_layer = 4
+collision_mask = 3
+script = ExtResource("1_w0573")
+
+[node name="Sprite2D" type="Sprite2D" parent="." groups=["armas"]]
+scale = Vector2(0.19, 0.19)
+texture = ExtResource("2_iyavd")
+region_enabled = true
+region_rect = Rect2(290, 167, 28, 17)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(2.38419e-07, 0)
+scale = Vector2(1.35714, 1.57143)
+shape = SubResource("RectangleShape2D_gevt7")
+debug_color = Color(0.880094, 0.000365601, 0.822816, 0.42)
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

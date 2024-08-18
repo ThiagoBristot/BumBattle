@@ -1,0 +1,23 @@
+extends RigidBody2D
+
+# Variáveis do revolver
+const MAX_AMMO = 6
+var current_ammo = MAX_AMMO
+var reload_time = 3.0
+
+@onready var player = $"."
+@onready var sprite = $Sprite2D
+
+func shoot():
+	if current_ammo > 0:
+		current_ammo -= 1
+		# Adicione aqui a lógica para disparar a bala
+	if current_ammo == 0:
+		reload()
+
+func reload():
+	# Recarrega o revolver
+	current_ammo = MAX_AMMO
+	# Adicione lógica para indicar que o revolver está recarregando, se necessário
+
+
