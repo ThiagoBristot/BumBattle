@@ -1,1 +1,1 @@
-https://thiagobristot.github.io/
+thiagobristot.github.io
