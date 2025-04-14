@@ -1,0 +1,94 @@
+[gd_scene load_steps=17 format=3 uid="uid://dc6brwglgmqxs"]
+
+[ext_resource type="Script" path="res://scripts/game_handler.gd" id="1_m1ckj"]
+[ext_resource type="PackedScene" uid="uid://cj6psva6b3n4j" path="res://scenes/player.tscn" id="2_iiti0"]
+[ext_resource type="PackedScene" uid="uid://1bq64dyxhe4i" path="res://scenes/map.tscn" id="3_vlw5j"]
+[ext_resource type="PackedScene" uid="uid://42r3aotg2lg1" path="res://scenes/enemy.tscn" id="4_jc8n4"]
+[ext_resource type="Texture2D" uid="uid://p540lriar0sy" path="res://assets/0x72_DungeonTilesetII_v1.7.png" id="5_8l7do"]
+[ext_resource type="Script" path="res://scenes/enemy.gd" id="5_j1mld"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hrrvj"]
+atlas = ExtResource("5_8l7do")
+region = Rect2(368, 64, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vx28l"]
+atlas = ExtResource("5_8l7do")
+region = Rect2(384, 64, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6rker"]
+atlas = ExtResource("5_8l7do")
+region = Rect2(400, 64, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hs2id"]
+atlas = ExtResource("5_8l7do")
+region = Rect2(416, 64, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lc88c"]
+atlas = ExtResource("5_8l7do")
+region = Rect2(432, 64, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dog2i"]
+atlas = ExtResource("5_8l7do")
+region = Rect2(448, 64, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jymgk"]
+atlas = ExtResource("5_8l7do")
+region = Rect2(464, 64, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_r6610"]
+atlas = ExtResource("5_8l7do")
+region = Rect2(480, 64, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_h608r"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hrrvj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vx28l")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6rker")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hs2id")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lc88c")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dog2i")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jymgk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_r6610")
+}],
+"loop": true,
+"name": &"default",
+"speed": 8.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_val1m"]
+
+[node name="Game" type="Node2D"]
+script = ExtResource("1_m1ckj")
+
+[node name="Player" parent="." instance=ExtResource("2_iiti0")]
+position = Vector2(-7, 48)
+
+[node name="Map" parent="." instance=ExtResource("3_vlw5j")]
+
+[node name="Enemy" parent="." instance=ExtResource("4_jc8n4")]
+position = Vector2(68, 50)
+script = ExtResource("5_j1mld")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Enemy"]
+sprite_frames = SubResource("SpriteFrames_h608r")
+autoplay = "default"
+frame_progress = 0.636674
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Enemy"]
+shape = SubResource("CircleShape2D_val1m")

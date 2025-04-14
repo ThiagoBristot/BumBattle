@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://cpshx20ixdarm"]
+
+[ext_resource type="Texture2D" uid="uid://dqcuj1y6spwdw" path="res://assets/quadrado_armadura.png" id="1_ayjby"]
+[ext_resource type="Script" path="res://scripts/jewelryslot.gd" id="2_s6jkl"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_vh82t"]
+font_size = 6
+
+[node name="JewelrySlot" type="TextureRect"]
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("1_ayjby")
+script = ExtResource("2_s6jkl")
+
+[node name="QuantityLabel" type="Label" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+label_settings = SubResource("LabelSettings_vh82t")

@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://begf833ov6lyo"]
+
+[ext_resource type="Texture2D" uid="uid://b38vlrs50s07g" path="res://assets/ui/quadrado_arma.png" id="1_smctm"]
+[ext_resource type="Script" path="res://scripts/weaponslot.gd" id="2_hcjnp"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_34m34"]
+font_size = 6
+
+[node name="WeaponSlot" type="TextureRect"]
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("1_smctm")
+script = ExtResource("2_hcjnp")
+
+[node name="QuantityLabel" type="Label" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+label_settings = SubResource("LabelSettings_34m34")

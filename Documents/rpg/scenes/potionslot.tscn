@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://dgkokil1b8tk5"]
+
+[ext_resource type="Texture2D" uid="uid://ba5q6mh62qspa" path="res://assets/ui/quadrado_roxo.png" id="1_4k3qo"]
+[ext_resource type="Script" path="res://scripts/potionslot.gd" id="2_mxvhr"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_qqc1h"]
+font_size = 6
+
+[node name="PotionSlot" type="TextureRect"]
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("1_4k3qo")
+script = ExtResource("2_mxvhr")
+
+[node name="QuantityLabel" type="Label" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+label_settings = SubResource("LabelSettings_qqc1h")

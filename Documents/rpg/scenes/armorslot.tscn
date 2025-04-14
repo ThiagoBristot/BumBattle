@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://bo0norba478j4"]
+
+[ext_resource type="Texture2D" uid="uid://dmgjcp8d1bpkx" path="res://assets/ui/quadrado_basic_marrom.png" id="1_wadq0"]
+[ext_resource type="Script" path="res://scripts/armorslot.gd" id="2_g6wus"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_bnlmo"]
+font_size = 6
+
+[node name="ArmorSlot" type="TextureRect"]
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("1_wadq0")
+script = ExtResource("2_g6wus")
+
+[node name="QuantityLabel" type="Label" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+label_settings = SubResource("LabelSettings_bnlmo")

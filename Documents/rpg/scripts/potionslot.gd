@@ -1,0 +1,2 @@
+extends InventorySlot
+class_name PotionSlot
